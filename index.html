@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartStudy AI — Study Smarter with AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">SmartStudy AI</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works">How it works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Students</a>
+          </li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="login.html" class="btn btn-white btn-sm px-3">Log in</a>
+          <a href="register.html" class="btn btn-primary btn-sm px-3">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h1 class="hero-title mb-3">Study Smarter with AI</h1>
+          <p class="hero-subtitle mb-4">
+            Upload your materials, get AI summaries, quizzes, and personalized
+            study plans — instantly. Designed for focused, high-performing
+            students.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="register.html" class="btn btn-primary btn-lg px-4">Get Started for Free</a>
+            <a href="#how-it-works" class="btn btn-outline-primary btn-lg px-4">
+              <i class="fa-solid fa-circle-play me-2"></i>
+              See How It Works
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-3 text-muted-soft small">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-shield-check text-success me-2"></i>
+              <span>Trusted by 12,000+ students</span>
+            </div>
+            <span class="d-none d-md-inline">•</span>
+            <span class="d-none d-md-inline">No credit card required</span>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-mockup-card">
+            <div class="hero-mockup-header">
+              <div class="hero-mockup-pill">
+                <i class="fa-solid fa-wand-magic-sparkles me-1"></i>
+                AI Quiz Preview
+              </div>
+              <span class="small text-muted-soft">Data Structures · Quiz</span>
+            </div>
+            <div class="hero-mockup-question">
+              What is the time complexity of binary search on a sorted array?
+            </div>
+            <div class="hero-mockup-option">
+              <span>A. O(n)</span>
+              <span class="text-xs text-muted-soft">Not efficient enough</span>
+            </div>
+            <div class="hero-mockup-option correct">
+              <span>B. O(log n)</span>
+              <span class="hero-mockup-check">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </div>
+            <div class="hero-mockup-option">
+              <span>C. O(n log n)</span>
+              <span class="text-xs text-muted-soft">Too slow for search</span>
+            </div>
+            <div class="hero-mockup-option">
+              <span>D. O(1)</span>
+              <span class="text-xs text-muted-soft">Only for direct access</span>
+            </div>
+            <div class="mt-3 small text-muted-soft">
+              <i class="fa-solid fa-lightbulb me-1 text-warning"></i>
+              Explanation: Binary search halves the search space each step,
+              leading to logarithmic time complexity.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4 mb-md-5">
+        <h2 class="section-title mb-2">
+          Everything You Need to Ace Your Studies
+        </h2>
+        <p class="text-muted-soft mb-0">
+          From lecture notes to exam prep, SmartStudy AI keeps your entire
+          academic life organized and optimized.
+        </p>
+      </div>
+      <div class="row g-3 g-md-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>🧠</span>
+            </div>
+            <h5 class="mb-1">AI Summaries</h5>
+            <p class="text-muted-soft mb-0">
+              Instant, intelligent summaries from your lecture notes and PDFs
+              so you can revise in minutes, not hours.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>📝</span>
+            </div>
+            <h5 class="mb-1">Smart Quizzes</h5>
+            <p class="text-muted-soft mb-0">
+              Auto-generated multiple-choice quizzes tailored exactly to the
+              material you upload.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>📊</span>
+            </div>
+            <h5 class="mb-1">Progress Analytics</h5>
+            <p class="text-muted-soft mb-0">
+              Track performance, identify weak spots, and see your scores
+              improve week over week.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>📁</span>
+            </div>
+            <h5 class="mb-1">Subject Management</h5>
+            <p class="text-muted-soft mb-0">
+              Organize your materials by subject in one clean, distraction-free
+              workspace.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>🎯</span>
+            </div>
+            <h5 class="mb-1">Study Plans</h5>
+            <p class="text-muted-soft mb-0">
+              Personalized weekly study plans based on your quiz performance and
+              upcoming deadlines.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <span>🔒</span>
+            </div>
+            <h5 class="mb-1">Secure & Private</h5>
+            <p class="text-muted-soft mb-0">
+              Your data is encrypted and stored securely. You stay in control of
+              what you upload and generate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="text-center mb-4 mb-md-5">
+        <h2 class="section-title mb-2">How SmartStudy AI Works</h2>
+        <p class="text-muted-soft mb-0">
+          Get from scattered lecture notes to focused, AI-guided revision in
+          four simple steps.
+        </p>
+      </div>
+      <div class="step-timeline">
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-dash d-none d-md-block"></div>
+          <h6 class="mb-1">Create an account</h6>
+          <p class="text-muted-soft small mb-0">
+            Sign up in under a minute with your email or Google account.
+          </p>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-dash d-none d-md-block"></div>
+          <h6 class="mb-1">Upload your materials</h6>
+          <p class="text-muted-soft small mb-0">
+            Add lecture slides, PDFs, and notes for each of your subjects.
+          </p>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <div class="step-dash d-none d-md-block"></div>
+          <h6 class="mb-1">Let AI process your content</h6>
+          <p class="text-muted-soft small mb-0">
+            SmartStudy AI builds summaries, extracts key concepts, and prepares
+            personalized quizzes.
+          </p>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div>
+          <h6 class="mb-1">Study, quiz & track progress</h6>
+          <p class="text-muted-soft small mb-0">
+            Follow your weekly plan, take quizzes, and watch your confidence
+            grow before exams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4 mb-md-5">
+        <h2 class="section-title mb-2">Students who study with SmartStudy</h2>
+        <p class="text-muted-soft mb-0">
+          Real students, real degrees, less late-night cramming.
+        </p>
+      </div>
+      <div class="row g-3 g-md-4">
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar-circle me-2">AL</div>
+              <div>
+                <div class="fw-semibold">Aisha Latif</div>
+                <div class="small text-muted-soft">
+                  Computer Science · University of Toronto
+                </div>
+              </div>
+            </div>
+            <div class="mb-2 text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-muted-soft mb-0">
+              “SmartStudy AI turned my messy CS notes into clear summaries and
+              targeted quizzes. My Data Structures grade jumped from 72% to
+              89% in one semester.”
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar-circle me-2">RM</div>
+              <div>
+                <div class="fw-semibold">Rafael Mendes</div>
+                <div class="small text-muted-soft">
+                  Mechanical Engineering · ETH Zürich
+                </div>
+              </div>
+            </div>
+            <div class="mb-2 text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-muted-soft mb-0">
+              “The progress analytics page is my favorite. I can quickly see
+              which subjects are slipping and adjust my weekly plan before
+              it’s too late.”
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar-circle me-2">EC</div>
+              <div>
+                <div class="fw-semibold">Elena Costa</div>
+                <div class="small text-muted-soft">
+                  Medicine · University of São Paulo
+                </div>
+              </div>
+            </div>
+            <div class="mb-2 text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-muted-soft mb-0">
+              “I use SmartStudy AI to keep track of dozens of lectures across
+              anatomy and pharmacology. The AI-generated quizzes are so
+              close to what my professors ask.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-4">
+    <div class="container">
+      <div class="cta-banner d-md-flex align-items-center justify-content-between">
+        <div class="mb-3 mb-md-0">
+          <h3 class="h4 fw-semibold mb-1 text-white">
+            Ready to transform how you study?
+          </h3>
+          <p class="mb-0 text-white-50">
+            Create your free workspace and generate your first AI summary in
+            under two minutes.
+          </p>
+        </div>
+        <div>
+          <a href="register.html" class="btn btn-light">
+            Start for Free
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="row align-items-center gy-3">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mb-2">
+            <span class="logo-icon me-1">📚</span>
+            <span class="logo-text text-white">SmartStudy AI</span>
+          </div>
+          <p class="small mb-0 text-muted-soft">
+            An academic co-pilot for serious students. Built to keep you ahead
+            of every exam.
+          </p>
+        </div>
+        <div class="col-md-4 d-flex justify-content-md-center">
+          <ul class="list-inline mb-0 small">
+            <li class="list-inline-item me-3">
+              <a href="#features">Features</a>
+            </li>
+            <li class="list-inline-item me-3">
+              <a href="#how-it-works">How it works</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#testimonials">Students</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end small text-muted-soft">
+          © <span id="yearSpan"></span> SmartStudy AI. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // simple year updater for footer
+    const y = document.getElementById("yearSpan");
+    if (y) {
+      y.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Take a Quiz — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">Quiz: Data Structures</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand px-3 pb-2 d-none d-lg-block">
+        Quizzes
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link active">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="study-plan.html" class="sidebar-link">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Study Plan</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="sidebar-link">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Current quiz: <span class="fw-semibold">3 / 10</span> questions
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <div class="quiz-topbar" data-quiz>
+        <div>
+          <div class="small text-muted-soft mb-1">Subject</div>
+          <div class="fw-semibold">Data Structures</div>
+        </div>
+        <div>
+          <div class="small text-muted-soft mb-1">Quiz</div>
+          <div class="fw-semibold">Core Concepts — Practice Set</div>
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex align-items-center gap-2">
+            <span class="quiz-progress-text" data-quiz-progress-label>Question 1 of 3</span>
+            <div class="progress flex-grow-1">
+              <div class="progress-bar bg-primary" role="progressbar" style="width: 33%;" aria-valuenow="33"
+                aria-valuemin="0" aria-valuemax="100" data-quiz-progress></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="small text-muted-soft mb-1">Time left</div>
+          <span class="quiz-timer">
+            <i class="fa-regular fa-clock me-1"></i>
+            12:34
+          </span>
+        </div>
+      </div>
+
+      <!-- Question card -->
+      <section class="mb-4">
+        <div class="quiz-question-card">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="quiz-question-badge">Question</span>
+            <span class="small text-muted-soft">Multiple choice · Single answer</span>
+          </div>
+          <h2 class="h6 mb-3" data-quiz-question-text>
+            <!-- populated by JS -->
+          </h2>
+
+          <div class="vstack gap-2 mb-3">
+            <div class="quiz-option-card" data-quiz-option>
+              <div class="small">
+                <span class="fw-semibold me-1">A.</span>
+                <span data-quiz-option-label>Option text</span>
+              </div>
+            </div>
+            <div class="quiz-option-card" data-quiz-option>
+              <div class="small">
+                <span class="fw-semibold me-1">B.</span>
+                <span data-quiz-option-label>Option text</span>
+              </div>
+            </div>
+            <div class="quiz-option-card" data-quiz-option>
+              <div class="small">
+                <span class="fw-semibold me-1">C.</span>
+                <span data-quiz-option-label>Option text</span>
+              </div>
+            </div>
+            <div class="quiz-option-card" data-quiz-option>
+              <div class="small">
+                <span class="fw-semibold me-1">D.</span>
+                <span data-quiz-option-label>Option text</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='ai-tools.html'">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i>
+              Review with AI
+            </button>
+            <button type="button" class="btn btn-primary" data-quiz-next disabled>
+              Next question
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Results Modal -->
+  <div class="modal fade" id="quizResultModal" tabindex="-1" aria-labelledby="quizResultModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-12">
+        <div class="modal-header border-0 pb-0">
+          <h1 class="modal-title fs-6" id="quizResultModalLabel">Quiz results</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <div class="text-center mb-3">
+            <div class="mx-auto mb-2"
+              style="width:96px;height:96px;border-radius:999px;border:6px solid rgba(79,70,229,0.18);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#4F46E5,#6366F1);color:#EEF2FF;">
+              <span class="fw-bold fs-4" data-quiz-score-circle>80%</span>
+            </div>
+            <div class="fw-semibold mb-1" data-quiz-score-detail>Correct: 8 / 10</div>
+            <p class="small text-muted-soft mb-0" data-quiz-score-message>
+              Great job! You're mastering this topic.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0 d-flex justify-content-between">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+            Review answers
+          </button>
+          <a href="dashboard.html" class="btn btn-primary">
+            Back to dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+

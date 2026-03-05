@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">Profile</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand px-3 pb-2 d-none d-lg-block">
+        Account
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="study-plan.html" class="sidebar-link">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Study Plan</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="sidebar-link active">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Member since: <span class="fw-semibold">Sep 2023</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <!-- Profile header -->
+      <section class="mb-4">
+        <div class="profile-header-card">
+          <div class="profile-avatar-lg">
+            AH
+          </div>
+          <div class="flex-grow-1">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div>
+                <h1 class="h5 mb-0">Ahmed Hassan</h1>
+                <p class="small text-muted-soft mb-1">
+                  ahmed.hassan@example.edu
+                </p>
+                <span class="badge bg-primary-subtle text-primary small me-1">Undergraduate</span>
+                <span class="badge bg-info-subtle text-info small">Computer Science</span>
+              </div>
+              <div class="text-end small text-muted-soft">
+                Joined · <span class="fw-semibold">September 2023</span><br />
+                Streak · <span class="fw-semibold text-success">6 days</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-outline-primary btn-sm">
+              <i class="fa-regular fa-pen-to-square me-1"></i>
+              Edit profile
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="row g-4">
+        <!-- Personal information -->
+        <div class="col-lg-7">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <h2 class="h6 mb-3">Personal information</h2>
+              <form>
+                <div class="mb-3">
+                  <label class="form-label small fw-semibold" for="profileName">Full name</label>
+                  <input type="text" id="profileName" class="form-control" value="Ahmed Hassan" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-semibold" for="profileEmail">Email address</label>
+                  <input type="email" id="profileEmail" class="form-control" value="ahmed.hassan@example.edu" />
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label small fw-semibold" for="profileLevel">Academic level</label>
+                    <select id="profileLevel" class="form-select">
+                      <option>High School</option>
+                      <option selected>Undergraduate</option>
+                      <option>Graduate</option>
+                      <option>PhD</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label small fw-semibold" for="profileMajor">Specialization / Major</label>
+                    <input type="text" id="profileMajor" class="form-control" value="Computer Science" />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-semibold" for="profileBio">Bio</label>
+                  <textarea id="profileBio" rows="3" class="form-control"
+                    placeholder="Share a bit about what you’re studying and your goals.">Final-year CS student focusing on algorithms, data-intensive systems, and building tools that make studying less painful.</textarea>
+                </div>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security & preferences -->
+        <div class="col-lg-5">
+          <!-- Account security -->
+          <div class="card-soft mb-3">
+            <div class="card-soft-body">
+              <h2 class="h6 mb-3">Account security</h2>
+              <form>
+                <div class="mb-2">
+                  <label class="form-label small fw-semibold" for="currentPassword">Current password</label>
+                  <input type="password" id="currentPassword" class="form-control" placeholder="Enter current password" />
+                </div>
+                <div class="mb-2">
+                  <label class="form-label small fw-semibold" for="newPassword">New password</label>
+                  <input type="password" id="newPassword" class="form-control" placeholder="Create a new password" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-semibold" for="confirmNewPassword">Confirm new password</label>
+                  <input type="password" id="confirmNewPassword" class="form-control"
+                    placeholder="Re-type your new password" />
+                </div>
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  Update password
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="card-soft">
+            <div class="card-soft-body">
+              <h2 class="h6 mb-3">Preferences</h2>
+              <div class="mb-3">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="prefEmailUpdates" checked />
+                  <label class="form-check-label small" for="prefEmailUpdates">
+                    Email me weekly progress summaries
+                  </label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="prefQuizReminders" checked />
+                  <label class="form-check-label small" for="prefQuizReminders">
+                    Remind me to take quizzes on weak topics
+                  </label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="prefStudyBlocks" />
+                  <label class="form-check-label small" for="prefStudyBlocks">
+                    Suggest evening study blocks
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label small fw-semibold" for="prefLanguage">Language</label>
+                <select id="prefLanguage" class="form-select form-select-sm">
+                  <option selected>English</option>
+                  <option>Arabic</option>
+                  <option>French</option>
+                  <option>Spanish</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label class="form-label small fw-semibold d-block">Theme</label>
+                <div class="d-flex gap-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="theme" id="themeLight" checked />
+                    <label class="form-check-label small" for="themeLight">
+                      Light
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="theme" id="themeDark" />
+                    <label class="form-check-label small" for="themeDark">
+                      Dark (preview only)
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-2">
+                Save preferences
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+

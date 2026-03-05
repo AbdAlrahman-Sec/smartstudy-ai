@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">AI Tools</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand px-3 pb-2 d-none d-lg-block">
+        AI Workspace
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link active">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="study-plan.html" class="sidebar-link">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Study Plan</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="sidebar-link">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Last AI run: <span class="fw-semibold">2 hours ago</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h1 class="h4 mb-1">AI Tools</h1>
+          <p class="text-muted-soft small mb-0">
+            Generate summaries, extract key concepts, and build quizzes from your uploaded materials.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <ul class="nav nav-tabs mb-3" id="aiToolsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button"
+            role="tab" aria-controls="summary" aria-selected="true">
+            <i class="fa-regular fa-file-lines me-1"></i> Summary
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="concepts-tab" data-bs-toggle="tab" data-bs-target="#concepts" type="button"
+            role="tab" aria-controls="concepts" aria-selected="false">
+            <i class="fa-solid fa-tags me-1"></i> Key Concepts
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz-generator" type="button"
+            role="tab" aria-controls="quiz-generator" aria-selected="false">
+            <i class="fa-solid fa-list-check me-1"></i> Quiz Generator
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="aiToolsTabsContent">
+        <!-- Summary Tab -->
+        <div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+          <div class="row g-3">
+            <div class="col-lg-5">
+              <div class="card-soft">
+                <div class="card-soft-body">
+                  <h3 class="h6 mb-3">Generate summary</h3>
+                  <form>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="summarySubject">Subject</label>
+                      <select id="summarySubject" class="form-select">
+                        <option>Data Structures</option>
+                        <option>Linear Algebra</option>
+                        <option>Organic Chemistry</option>
+                        <option>Cognitive Psychology</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="summaryMaterial">Material</label>
+                      <select id="summaryMaterial" class="form-select">
+                        <option>Lecture 5 — Heap Sort.pdf</option>
+                        <option>Lecture 3 — Binary Trees.pdf</option>
+                        <option>Neural Networks — Notes.txt</option>
+                      </select>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100">
+                      <i class="fa-solid fa-wand-magic-sparkles me-2"></i>
+                      Generate Summary
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="ai-output-card h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="h6 mb-0">AI-generated summary</h3>
+                  <button class="btn btn-outline-primary btn-icon btn-sm" type="button" data-copy-summary>
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <p class="small text-muted-soft mb-2">
+                  Based on: <span class="fw-semibold">Lecture 5 — Heap Sort.pdf</span> · Data Structures
+                </p>
+                <div class="flex-grow-1">
+                  <div class="small" data-summary-text>
+                    <p>
+                      Heap sort is a comparison-based sorting algorithm that leverages the heap data structure to
+                      achieve \(O(n \log n)\) time complexity in both the best and worst case. It first builds a max
+                      heap from the input array, ensuring that the largest element is at the root.
+                    </p>
+                    <p>
+                      The algorithm then repeatedly swaps the root with the last element of the heap and reduces the
+                      heap size, restoring the heap property after each extraction. This process produces a sorted
+                      array in-place without requiring additional memory beyond a constant amount of overhead.
+                    </p>
+                    <p>
+                      Compared to quicksort, heap sort offers more predictable performance but often has a larger
+                      constant factor and is less cache-friendly. In practice, it’s useful when worst-case guarantees
+                      are critical, such as in real-time systems or security-sensitive code paths.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Concepts Tab -->
+        <div class="tab-pane fade" id="concepts" role="tabpanel" aria-labelledby="concepts-tab">
+          <div class="row g-3">
+            <div class="col-lg-4">
+              <div class="card-soft">
+                <div class="card-soft-body">
+                  <h3 class="h6 mb-3">Extract key concepts</h3>
+                  <form>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="conceptSubject">Subject</label>
+                      <select id="conceptSubject" class="form-select">
+                        <option>Data Structures</option>
+                        <option>Linear Algebra</option>
+                        <option>Organic Chemistry</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="conceptMaterial">Material</label>
+                      <select id="conceptMaterial" class="form-select">
+                        <option>Reaction Mechanisms.pptx</option>
+                        <option>Lecture 2 — Linked Lists.pdf</option>
+                        <option>Lecture 7 — Eigenvectors.pdf</option>
+                      </select>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100">
+                      <i class="fa-solid fa-lightbulb me-2"></i>
+                      Extract Concepts
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="ai-output-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="h6 mb-0">Key concepts</h3>
+                  <span class="badge bg-light text-muted-soft small">Organic Chemistry — Reaction Mechanisms</span>
+                </div>
+                <div class="chip-cloud">
+                  <span class="chip">Nucleophilic substitution (SN1/SN2)</span>
+                  <span class="chip" style="background-color:#fef3c7;color:#92400e;">Elimination reactions (E1/E2)</span>
+                  <span class="chip" style="background-color:#dcfce7;color:#166534;">Carbocation stability</span>
+                  <span class="chip" style="background-color:#e0f2fe;color:#075985;">Leaving group ability</span>
+                  <span class="chip" style="background-color:#fef2f2;color:#b91c1c;">Reaction energy diagrams</span>
+                  <span class="chip">Transition states</span>
+                  <span class="chip">Regioselectivity</span>
+                  <span class="chip">Stereochemistry (inversion/retention)</span>
+                  <span class="chip">Electrophiles vs nucleophiles</span>
+                  <span class="chip">Reaction rate laws</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Generator Tab -->
+        <div class="tab-pane fade" id="quiz-generator" role="tabpanel" aria-labelledby="quiz-tab">
+          <div class="row g-3">
+            <div class="col-lg-5">
+              <div class="card-soft">
+                <div class="card-soft-body">
+                  <h3 class="h6 mb-3">Generate quiz</h3>
+                  <form>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="quizSubjectSelect">Subject</label>
+                      <select id="quizSubjectSelect" class="form-select">
+                        <option>Data Structures</option>
+                        <option>Linear Algebra</option>
+                        <option>Organic Chemistry</option>
+                        <option>Cognitive Psychology</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold" for="quizMaterialSelect">Material</label>
+                      <select id="quizMaterialSelect" class="form-select">
+                        <option>Lecture 3 — Binary Trees.pdf</option>
+                        <option>Lecture 7 — Eigenvectors.pdf</option>
+                        <option>Working Memory — Notes.txt</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold d-block">Number of questions</label>
+                      <div class="d-flex flex-wrap gap-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizCount" id="count5" checked />
+                          <label class="form-check-label small" for="count5">5</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizCount" id="count10" />
+                          <label class="form-check-label small" for="count10">10</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizCount" id="count15" />
+                          <label class="form-check-label small" for="count15">15</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-semibold d-block">Difficulty</label>
+                      <div class="d-flex flex-wrap gap-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizDifficulty" id="diffEasy" checked />
+                          <label class="form-check-label small" for="diffEasy">Easy</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizDifficulty" id="diffMedium" />
+                          <label class="form-check-label small" for="diffMedium">Medium</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="quizDifficulty" id="diffHard" />
+                          <label class="form-check-label small" for="diffHard">Hard</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100">
+                      <i class="fa-solid fa-list-check me-2"></i>
+                      Generate Quiz
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="ai-output-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="h6 mb-0">Preview questions</h3>
+                  <span class="badge bg-light text-muted-soft small">3 of 10 generated</span>
+                </div>
+
+                <!-- Question 1 -->
+                <div class="mb-3">
+                  <div class="small text-muted-soft mb-1">Question 1 · Binary Trees</div>
+                  <div class="fw-semibold mb-2">
+                    In a binary search tree, where are keys greater than the root typically stored?
+                  </div>
+                  <div class="small mb-1">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" checked />
+                      <label class="form-check-label small text-success">
+                        In nodes of the right subtree of the root.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        In nodes of the left subtree of the root.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        Only in leaf nodes.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        Randomly across both subtrees.
+                      </label>
+                    </div>
+                  </div>
+                  <div class="small text-muted-soft">
+                    Explanation: In a BST, the right subtree of a node contains values strictly greater than the node’s
+                    key.
+                  </div>
+                </div>
+
+                <hr />
+
+                <!-- Question 2 -->
+                <div class="mb-3">
+                  <div class="small text-muted-soft mb-1">Question 2 · Time Complexity</div>
+                  <div class="fw-semibold mb-2">
+                    What is the average-case time complexity of searching for an element in a balanced binary search
+                    tree?
+                  </div>
+                  <div class="small mb-1">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        \(O(n)\)
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" checked />
+                      <label class="form-check-label small text-success">
+                        \(O(\log n)\)
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        \(O(n \log n)\)
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        \(O(1)\)
+                      </label>
+                    </div>
+                  </div>
+                  <div class="small text-muted-soft">
+                    Explanation: The height of a balanced BST is \(O(\log n)\), so search follows that path length.
+                  </div>
+                </div>
+
+                <hr />
+
+                <!-- Question 3 -->
+                <div>
+                  <div class="small text-muted-soft mb-1">Question 3 · Tree Traversals</div>
+                  <div class="fw-semibold mb-2">
+                    Which traversal order visits nodes in non-decreasing order for a binary search tree?
+                  </div>
+                  <div class="small mb-1">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" checked />
+                      <label class="form-check-label small text-success">
+                        In-order traversal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        Pre-order traversal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        Post-order traversal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" />
+                      <label class="form-check-label small">
+                        Level-order traversal
+                      </label>
+                    </div>
+                  </div>
+                  <div class="small text-muted-soft">
+                    Explanation: In-order traversal of a BST yields the elements in sorted order.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+

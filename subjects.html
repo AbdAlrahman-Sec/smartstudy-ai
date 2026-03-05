@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Subjects — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">My Subjects</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand px-3 pb-2 d-none d-lg-block">
+        Workspace
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link active">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="study-plan.html" class="sidebar-link">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Study Plan</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="sidebar-link">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Subjects synced: <span class="fw-semibold">6</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h1 class="h4 mb-1">My Subjects</h1>
+          <p class="text-muted-soft small mb-0">
+            Organize all your courses and keep materials, quizzes, and analytics in one place.
+          </p>
+        </div>
+        <div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSubjectModal">
+            <i class="fa-solid fa-plus me-2"></i>
+            Add New Subject
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="subject-filter-bar row g-2 mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fa-solid fa-magnifying-glass text-muted-soft"></i>
+            </span>
+            <input type="text" class="form-control border-start-0" placeholder="Search by subject or code..." />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select">
+            <option selected>All academic levels</option>
+            <option>High School</option>
+            <option>Undergraduate</option>
+            <option>Graduate</option>
+            <option>PhD</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select">
+            <option selected>Sort by recent activity</option>
+            <option>Sort by name (A–Z)</option>
+            <option>Sort by quizzes taken</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Subjects grid -->
+      <div class="row g-3 g-md-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Data Structures</div>
+                <span class="badge bg-primary-subtle text-primary small">Undergraduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">CS205</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Computer Science</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">7</span></span>
+              <span>Quizzes: <span class="fw-semibold">14</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: 2 hours ago
+            </div>
+            <div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2" style="border-top-color:#0EA5E9;"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Linear Algebra</div>
+                <span class="badge bg-info-subtle text-info small">Undergraduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">MATH241</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Applied Mathematics</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">5</span></span>
+              <span>Quizzes: <span class="fw-semibold">9</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: yesterday
+            </div>
+            <div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2" style="border-top-color:#10B981;"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Organic Chemistry</div>
+                <span class="badge bg-warning-subtle text-warning small">Undergraduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">CHEM210</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Pre-Med</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">4</span></span>
+              <span>Quizzes: <span class="fw-semibold">8</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: 3 days ago
+            </div>
+            <<div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2" style="border-top-color:#F59E0B;"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Cognitive Psychology</div>
+                <span class="badge bg-success-subtle text-success small">Graduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">PSY510</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Cognitive Science</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">3</span></span>
+              <span>Quizzes: <span class="fw-semibold">6</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: 5 days ago
+            </div>
+            <div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2" style="border-top-color:#6366F1;"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Microeconomics</div>
+                <span class="badge bg-primary-subtle text-primary small">Undergraduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">ECON201</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Economics</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">3</span></span>
+              <span>Quizzes: <span class="fw-semibold">5</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: 1 week ago
+            </div>
+            <div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="subject-card">
+            <div class="subject-card-top-border mb-2" style="border-top-color:#EF4444;"></div>
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <div class="fw-semibold">Research Methods</div>
+                <span class="badge bg-info-subtle text-info small">Graduate</span>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary small">RSCH602</span>
+            </div>
+            <div class="small text-muted-soft mb-1">Specialization: Educational Research</div>
+            <div class="d-flex justify-content-between small text-muted-soft mb-1">
+              <span>Materials: <span class="fw-semibold">2</span></span>
+              <span>Quizzes: <span class="fw-semibold">4</span></span>
+            </div>
+            <div class="small text-muted-soft mb-2">
+              Last updated: 2 weeks ago
+            </div>
+            <div class="d-flex gap-2">
+              <a href="upload.html" class="btn btn-sm btn-primary">Open</a>
+              <button class="btn btn-sm btn-outline-danger-soft">
+                <i class="fa-regular fa-trash-can me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Subject Modal -->
+  <div class="modal fade" id="addSubjectModal" tabindex="-1" aria-labelledby="addSubjectModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-12">
+        <div class="modal-header border-0 pb-0">
+          <h1 class="modal-title fs-6" id="addSubjectModalLabel">Add new subject</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <form>
+            <div class="mb-3">
+              <label for="subjectName" class="form-label small fw-semibold">Subject name</label>
+              <input type="text" class="form-control" id="subjectName" placeholder="e.g. Probability Theory" />
+            </div>
+            <div class="mb-3">
+              <label for="subjectLevel" class="form-label small fw-semibold">Academic level</label>
+              <select id="subjectLevel" class="form-select">
+                <option selected>Choose level</option>
+                <option>High School</option>
+                <option>Undergraduate</option>
+                <option>Graduate</option>
+                <option>PhD</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="subjectDescription" class="form-label small fw-semibold">Description</label>
+              <textarea id="subjectDescription" rows="3" class="form-control"
+                placeholder="Short description of what you’re studying in this subject"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Create subject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+

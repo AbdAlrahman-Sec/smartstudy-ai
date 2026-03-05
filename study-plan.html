@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Plan — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">Study plan</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand px-3 pb-2 d-none d-lg-block">
+        Study Plan
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="study-plan.html" class="sidebar-link active">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span>Study Plan</span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="sidebar-link">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="sidebar-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Week of: <span class="fw-semibold">Mar 3–9, 2026</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h1 class="h4 mb-1">Your Study Plan</h1>
+          <p class="text-muted-soft small mb-0">
+            A weekly schedule generated from your quiz results, weak topics, and upcoming exams.
+          </p>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-primary">
+            <i class="fa-solid fa-rotate me-2"></i>
+            Regenerate plan
+          </button>
+        </div>
+      </div>
+
+      <!-- Weekly schedule -->
+      <section class="mb-4">
+        <h2 class="h6 mb-2">Weekly schedule</h2>
+        <div class="week-grid">
+          <!-- Monday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Mon</div>
+            <div class="small text-muted-soft mb-1">Mar 3</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Binary Trees — Practice set</span>
+                <span class="badge bg-primary-subtle text-primary small">Data Structures</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>40 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Flashcards — Organic mechanisms</span>
+                <span class="badge bg-warning-subtle text-warning small">Organic Chem</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>30 mins</span>
+                <span><span class="difficulty-dot difficulty-hard"></span> Hard</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuesday (today highlight) -->
+          <div class="day-column today">
+            <div class="small fw-semibold mb-1">Tue · Today</div>
+            <div class="small text-muted-soft mb-1">Mar 4</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Dynamic Programming — Intro</span>
+                <span class="badge bg-primary-subtle text-primary small">Algorithms</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>45 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Working Memory — Review</span>
+                <span class="badge bg-success-subtle text-success small">Psychology</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>30 mins</span>
+                <span><span class="difficulty-dot difficulty-easy"></span> Easy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Wed</div>
+            <div class="small text-muted-soft mb-1">Mar 5</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Eigenvalues — Problem set</span>
+                <span class="badge bg-info-subtle text-info small">Linear Algebra</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>50 mins</span>
+                <span><span class="difficulty-dot difficulty-hard"></span> Hard</span>
+              </div>
+            </div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Quiz — Heap sort</span>
+                <span class="badge bg-primary-subtle text-primary small">Data Structures</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>20 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thursday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Thu</div>
+            <div class="small text-muted-soft mb-1">Mar 6</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Cognitive biases — Reading</span>
+                <span class="badge bg-success-subtle text-success small">Psychology</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>35 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Friday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Fri</div>
+            <div class="small text-muted-soft mb-1">Mar 7</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Recurrence relations — Practice</span>
+                <span class="badge bg-primary-subtle text-primary small">Algorithms</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>40 mins</span>
+                <span><span class="difficulty-dot difficulty-hard"></span> Hard</span>
+              </div>
+            </div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Game theory — Problem set</span>
+                <span class="badge bg-info-subtle text-info small">Microeconomics</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>30 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Sat</div>
+            <div class="small text-muted-soft mb-1">Mar 8</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Full-length mixed quiz</span>
+                <span class="badge bg-secondary-subtle text-secondary small">All subjects</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>60 mins</span>
+                <span><span class="difficulty-dot difficulty-medium"></span> Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sunday -->
+          <div class="day-column">
+            <div class="small fw-semibold mb-1">Sun</div>
+            <div class="small text-muted-soft mb-1">Mar 9</div>
+            <div class="day-task-card">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-semibold">Light review & planning</span>
+                <span class="badge bg-secondary-subtle text-secondary small">Weekly reset</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center small text-muted-soft">
+                <span>25 mins</span>
+                <span><span class="difficulty-dot difficulty-easy"></span> Easy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommendations -->
+      <section class="mb-4">
+        <h2 class="h6 mb-2">Focus areas this week</h2>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card-soft h-100">
+              <div class="card-soft-body">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stat-icon me-2">
+                    <i class="fa-solid fa-sitemap"></i>
+                  </div>
+                  <div>
+                    <div class="small text-muted-soft mb-0">Data Structures</div>
+                    <div class="fw-semibold small">Trees &amp; recursion</div>
+                  </div>
+                </div>
+                <p class="small text-muted-soft mb-2">
+                  You scored <span class="fw-semibold text-danger">52%</span> on tree recursion questions. Strengthen your
+                  intuition with targeted practice sets.
+                </p>
+                <div class="small text-muted-soft mb-2">
+                  Estimated time: <span class="fw-semibold">2 x 40 min</span> blocks
+                </div>
+                <button class="btn btn-sm btn-primary w-100">
+                  Start studying
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-soft h-100">
+              <div class="card-soft-body">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stat-icon me-2">
+                    <i class="fa-solid fa-flask"></i>
+                  </div>
+                  <div>
+                    <div class="small text-muted-soft mb-0">Organic Chemistry</div>
+                    <div class="fw-semibold small">SN1/SN2 vs E1/E2</div>
+                  </div>
+                </div>
+                <p class="small text-muted-soft mb-2">
+                  Mechanism selection errors caused most incorrect answers. Focus on reagent/solvent patterns.
+                </p>
+                <div class="small text-muted-soft mb-2">
+                  Estimated time: <span class="fw-semibold">3 x 30 min</span> sessions
+                </div>
+                <button class="btn btn-sm btn-primary w-100">
+                  Start studying
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-soft h-100">
+              <div class="card-soft-body">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stat-icon me-2">
+                    <i class="fa-solid fa-brain"></i>
+                  </div>
+                  <div>
+                    <div class="small text-muted-soft mb-0">Cognitive Psychology</div>
+                    <div class="fw-semibold small">Working memory models</div>
+                  </div>
+                </div>
+                <p class="small text-muted-soft mb-2">
+                  Strong recall of definitions, but confusion between model diagrams. Use visual summaries and quizzes.
+                </p>
+                <div class="small text-muted-soft mb-2">
+                  Estimated time: <span class="fw-semibold">2 x 25 min</span> active recall sessions
+                </div>
+                <button class="btn btn-sm btn-primary w-100">
+                  Start studying
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress toward goals -->
+      <section>
+        <h2 class="h6 mb-2">Progress toward goals</h2>
+        <div class="card-soft">
+          <div class="card-soft-body">
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span>Reach 85% average across all subjects</span>
+                <span class="text-muted-soft">78% / 85%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-primary" style="width: 72%;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span>Complete at least 4 quizzes per week</span>
+                <span class="text-muted-soft">3 / 4 this week</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-success" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span>Review every weak topic identified</span>
+                <span class="text-muted-soft">2 of 5 topics</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-warning" style="width: 40%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between small mb-1">
+                <span>Maintain a 5-day weekly study streak</span>
+                <span class="text-muted-soft">Current streak: 6 days</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-success" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
