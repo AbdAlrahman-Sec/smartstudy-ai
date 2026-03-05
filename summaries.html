@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Summaries — SmartStudy AI</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pk0oZDqZL2zZUTdY0JYLOhgyC9vIvT9aBr36T2e0YzlJrL1ZcI02s8nxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-app">
+  <!-- Navbar (authenticated) -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-lg-none sidebar-toggle-btn" type="button" data-sidebar-toggle>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">SmartStudy AI</span>
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted-soft small d-none d-md-inline">All summaries</span>
+        <div class="dropdown">
+          <button class="btn btn-link nav-link dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="navbar-avatar">AH</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="profile.html"><i class="fa-regular fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="analytics.html"><i class="fa-solid fa-chart-line me-2"></i>Analytics</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Log
+                out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header-row d-none d-lg-flex">
+        <div class="sidebar-brand">
+          Content
+        </div>
+        <button type="button" class="sidebar-pin-btn" title="Pin sidebar" data-sidebar-pin>
+          <i class="fa-solid fa-thumbtack"></i>
+        </button>
+      </div>
+      <ul class="sidebar-nav px-2">
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="subjects.html" class="sidebar-link">
+            <i class="fa-solid fa-folders"></i>
+            <span>My Subjects</span>
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" class="sidebar-link">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <span>Upload Material</span>
+          </a>
+        </li>
+        <li>
+          <a href="ai-tools.html" class="sidebar-link">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AI Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="summaries.html" class="sidebar-link active">
+            <i class="fa-regular fa-file-lines"></i>
+            <span>Summaries</span>
+          </a>
+        </li>
+        <li>
+          <a href="key-concepts.html" class="sidebar-link">
+            <i class="fa-solid fa-tags"></i>
+            <span>Key Concepts</span>
+          </a>
+        </li>
+        <li>
+          <a href="quiz.html" class="sidebar-link">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Quizzes</span>
+          </a>
+        </li>
+        <li>
+          <a href="analytics.html" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer small">
+        Total summaries: <span class="fw-semibold">9</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="app-main">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h1 class="h4 mb-1">All AI summaries</h1>
+          <p class="text-muted-soft small mb-0">
+            Browse the latest summaries generated across your subjects.
+          </p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <select class="form-select form-select-sm">
+            <option selected>All subjects</option>
+            <option>Data Structures</option>
+            <option>Linear Algebra</option>
+            <option>Organic Chemistry</option>
+            <option>Cognitive Psychology</option>
+            <option>Microeconomics</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Data Structures · Lecture 5</div>
+              <h2 class="h6 mb-1">Heap Sort — Core ideas</h2>
+              <p class="small text-muted-soft mb-2">
+                Explains building max-heaps, the heapify operation, and why overall runtime is \(O(n \log n)\) while
+                heap construction is \(O(n)\).
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · 2 hours ago</span>
+                <span>From: Heap Sort.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Linear Algebra · Lecture 7</div>
+              <h2 class="h6 mb-1">Eigenvalues &amp; Eigenvectors</h2>
+              <p class="small text-muted-soft mb-2">
+                Connects eigenvalues to stretching/compressing directions, shows how to compute them for 2x2 matrices,
+                and highlights common exam traps.
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · yesterday</span>
+                <span>From: Eigenvectors.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Organic Chemistry · Week 4</div>
+              <h2 class="h6 mb-1">SN1 vs SN2 in practice</h2>
+              <p class="small text-muted-soft mb-2">
+                Summarizes key differences in mechanism, stereochemistry, preferred solvents, and typical exam-style
+                questions.
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · 2 days ago</span>
+                <span>From: Mechanisms.pptx</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Cognitive Psychology · Reading</div>
+              <h2 class="h6 mb-1">Working Memory Models</h2>
+              <p class="small text-muted-soft mb-2">
+                Compares Baddeley–Hitch with alternative models, focusing on the phonological loop, visuospatial sketchpad,
+                and central executive.
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · 3 days ago</span>
+                <span>From: WorkingMemory.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Microeconomics · Lecture 3</div>
+              <h2 class="h6 mb-1">Elasticity &amp; Demand</h2>
+              <p class="small text-muted-soft mb-2">
+                Defines price elasticity, shows how to compute it from graphs and tables, and links elastic/inelastic
+                regions to revenue changes.
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · 5 days ago</span>
+                <span>From: DemandCurves.pdf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <div class="card-soft h-100">
+            <div class="card-soft-body">
+              <div class="small text-muted-soft mb-1">Research Methods · Module 1</div>
+              <h2 class="h6 mb-1">Experimental vs Correlational</h2>
+              <p class="small text-muted-soft mb-2">
+                Distinguishes experiments from correlational studies, focusing on random assignment, control, and threats
+                to internal validity.
+              </p>
+              <div class="d-flex justify-content-between small text-muted-soft">
+                <span>Generated · 1 week ago</span>
+                <span>From: MethodsNotes.txt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
