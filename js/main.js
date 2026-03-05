@@ -11,76 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function handleSidebarToggle() {
-  const sidebar = document.querySelector(".sidebar");
-  if (!sidebar) return;
-
-  const toggleBtn = document.querySelector("[data-sidebar-toggle]");
-  const pinBtn = document.querySelector("[data-sidebar-pin]");
-  const body = document.body;
-
-  // create hover zone for showing sidebar when collapsed (desktop)
-  const hoverZone = document.createElement("div");
-  hoverZone.className = "sidebar-hover-zone";
-  document.body.appendChild(hoverZone);
-
-  const collapse = () => {
-    if (!body.classList.contains("sidebar-pinned")) {
-      body.classList.add("sidebar-collapsed");
-    }
-  };
-
-  const expand = () => {
-    body.classList.remove("sidebar-collapsed");
-  };
-
-  // initial state: collapsed on small screens; on desktop collapsed unless pinned
-  if (window.innerWidth < 992 || !body.classList.contains("sidebar-pinned")) {
-    body.classList.add("sidebar-collapsed");
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", function () {
-      if (body.classList.contains("sidebar-collapsed")) {
-        expand();
-        body.classList.add("sidebar-pinned");
-      } else {
-        body.classList.remove("sidebar-pinned");
-        collapse();
-      }
-    });
-  }
-
-  if (pinBtn) {
-    pinBtn.addEventListener("click", function () {
-      if (body.classList.contains("sidebar-pinned")) {
-        body.classList.remove("sidebar-pinned");
-        collapse();
-      } else {
-        body.classList.add("sidebar-pinned");
-        expand();
-      }
-    });
-  }
-
-  hoverZone.addEventListener("mouseenter", function () {
-    if (window.innerWidth >= 992 && body.classList.contains("sidebar-collapsed") && !body.classList.contains("sidebar-pinned")) {
-      expand();
-    }
-  });
-
-  sidebar.addEventListener("mouseleave", function () {
-    if (window.innerWidth >= 992 && !body.classList.contains("sidebar-pinned")) {
-      collapse();
-    }
-  });
-
-  window.addEventListener("resize", function () {
-    if (window.innerWidth < 992) {
-      body.classList.add("sidebar-collapsed");
-    } else if (body.classList.contains("sidebar-pinned")) {
-      expand();
-    }
-  });
+  // Sidebar is always visible/expanded now.
+  // No toggle behavior to avoid disappearing menus.
 }
 
 function handlePasswordToggles() {
